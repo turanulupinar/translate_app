@@ -43,7 +43,7 @@ class _StarSavePageState extends State<StarSavePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorValidator().colValidator("lightblue"),
+      backgroundColor: ColorValE.lightblue.color,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -59,7 +59,7 @@ class _StarSavePageState extends State<StarSavePage> {
                       height: 90,
                       width: 450,
                       decoration: BoxDecoration(
-                          color: ColorValidator().colValidator("orange"),
+                          color: ColorValE.darkblue.color,
                           borderRadius: BorderRadius.circular(12)),
                       child: Center(
                         child: ListTile(
@@ -69,10 +69,8 @@ class _StarSavePageState extends State<StarSavePage> {
                                     ?.title
                                     .toString() ??
                                 "from metni",
-                            style: TextStyleValidator()
-                                .getStyleValidator(
-                                    fontName: "Medium", fontsize: 18)
-                                .copyWith(color: Colors.white),
+                            style: customTextStyle("Medium", 18)
+                                ?.copyWith(color: Colors.white),
                           ),
                           subtitle: Text(
                             saveStarList?[index]
@@ -80,10 +78,8 @@ class _StarSavePageState extends State<StarSavePage> {
                                     ?.author
                                     .toString() ??
                                 "ing karşılığı yok",
-                            style: TextStyleValidator()
-                                .getStyleValidator(
-                                    fontName: "Regular", fontsize: 14)
-                                .copyWith(color: Colors.white),
+                            style: customTextStyle("Regular", 14)
+                                ?.copyWith(color: Colors.white),
                           ),
                         ),
                       ),

@@ -1,11 +1,12 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:translate_app/core/constant/shared_constant.dart';
 import 'package:translate_app/core/data/shared_data.dart';
 import 'package:translate_app/core/widget/custom_elevated_button.dart';
+import 'package:translate_app/core/widget/customtextwidget.dart';
 
 import 'package:translate_app/util/color_validator.dart';
 import 'package:translate_app/util/first_name_uppercase.dart';
+
 import 'package:translate_app/util/textstyle_validator.dart';
 
 class HistoryPage extends StatefulWidget {
@@ -37,15 +38,13 @@ class _HistoryPageState extends State<HistoryPage> {
         children: [
           historySearchList == null
               ? Center(
-                  child: Text(
-                    "aramayapilmadi".tr(),
-                    style: TextStyleValidator()
-                        .getStyleValidator(fontName: "Medium", fontsize: 18),
-                  ),
+                  child: CustomTextWidget(
+                      data: "aramayapilmadi",
+                      style: customTextStyle("Medium", 18)),
                 )
               : CustomElevatedButton(
-                  color: ColorValidator().colValidator("orange"),
-                  title: "listeyitemizle".tr(),
+                  color: ColorValE.darkblue.color,
+                  title: "listeyitemizle",
                   onPressed: () {
                     SharedManagerData().clearSharedPreferences(
                         SharedPreferancesConstant.historySearchKey);

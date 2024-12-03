@@ -56,7 +56,7 @@ class TranslateModelView {
       }
     } catch (e) {
       //eleman
-      log("translateModel viewdan gelen hata:  $e");
+      log("translateModelviewdan gelen hata:  $e");
     }
     return null;
   }

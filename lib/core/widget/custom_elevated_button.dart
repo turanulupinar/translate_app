@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:translate_app/core/widget/customtextwidget.dart';
 
 import 'package:translate_app/util/textstyle_validator.dart';
 
@@ -23,12 +24,10 @@ class CustomElevatedButton extends StatelessWidget {
             style:
                 ElevatedButton.styleFrom(elevation: 5, backgroundColor: color),
             onPressed: onPressed,
-            child: Text(
-              title,
-              style: TextStyleValidator.instance
-                  .getStyleValidator(fontName: "Medium", fontsize: 16)
-                  .copyWith(color: Colors.white),
-            )),
+            child: CustomTextWidget(
+                data: title,
+                style: customTextStyle("Medium", 16)
+                    ?.copyWith(color: Colors.white))),
       ),
     );
   }

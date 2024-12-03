@@ -1,10 +1,12 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:translate_app/core/navigator_manager/navigator_manager.dart';
+import 'package:translate_app/core/widget/customtextwidget.dart';
 import 'package:translate_app/model/drawer_json_model/drawer_json_model.dart';
 
 import 'package:translate_app/pages/star_save_page/star_save_page.dart';
 import 'package:translate_app/pages/translate_page/translate_page.dart';
 import 'package:translate_app/util/color_validator.dart';
+
 import 'package:translate_app/util/textstyle_validator.dart';
 import '../../model/drawer_json_model/drawer_json.dart';
 import '../history_page/history_page.dart';
@@ -50,27 +52,23 @@ class _NaviBarState extends State<HomePage>
                   image: AssetImage(
                     model?.translateImage.toString() ?? "",
                   ),
-                  color: ColorValidator().colValidator("orange"),
+                  color: ColorValE.darkblue.color,
                 )),
           ),
           ...List.generate(model?.drawerList?.length ?? 2, (index) {
             return GestureDetector(
               onTap: () {
                 Navigator.pushNamed(
-                    context, model?.drawerList?[index].route ?? "/homepage");
+                    context,
+                    model?.drawerList?[index].route ??
+                        NavigatorEnum.homepage.withParaf);
               },
               child: ListTile(
                 leading: Icon(model?.drawerList?[index].icon),
-                title: Text(
-                  model?.drawerList?[index].title ?? "",
-                  style: TextStyleValidator()
-                      .getStyleValidator(fontName: "Medium", fontsize: 14),
-                ),
-                subtitle: Text(
-                  model?.drawerList?[index].subtitle ?? "",
-                  style: TextStyleValidator()
-                      .getStyleValidator(fontName: "Regular", fontsize: 10),
-                ),
+                title: Text(model?.drawerList?[index].title ?? "",
+                    style: customTextStyle("Medium", 14)),
+                subtitle: Text(model?.drawerList?[index].subtitle ?? "",
+                    style: customTextStyle("Regular", 10)),
               ),
             );
           }),
@@ -78,12 +76,9 @@ class _NaviBarState extends State<HomePage>
       )),
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: ColorValidator().colValidator("lightblue"),
-        title: Text(
-          "dil_cevirme",
-          style: TextStyleValidator()
-              .getStyleValidator(fontName: "Medium", fontsize: 22),
-        ).tr(),
+        backgroundColor: ColorValE.lightblue.color,
+        title: CustomTextWidget(
+            data: "dil_cevirme", style: customTextStyle("Medium", 22)),
         bottom: TabBar(
           indicatorSize: TabBarIndicatorSize.tab,
           controller: _tabController,

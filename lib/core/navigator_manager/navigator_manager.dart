@@ -44,3 +44,16 @@ class NavigatorManager {
     "/privacypolicy": (context) => const PrivacyPolicy()
   };
 }
+
+enum NavigatorEnum {
+  homepage,
+  searchpage,
+  selecetedLanguage,
+  testpage,
+  settingpage,
+  privacypolicy
+}
+
+extension NavigatorExtension on NavigatorEnum {
+  String get withParaf => "/$name";
+}

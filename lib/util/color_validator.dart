@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
 
-class ColorValidator {
-  static ColorValidator? _instance;
-  static ColorValidator get instance => _instance ??= ColorValidator._();
-  ColorValidator._();
-  factory ColorValidator() => _instance ??= ColorValidator._();
+enum ColorValE { darkblue, lightblack, lightblue, softgrey }
 
-  Color colValidator(String colorName) {
-    switch (colorName) {
-      case "orange":
+extension ColorExtension on ColorValE {
+  Color get color {
+    switch (this) {
+      case ColorValE.darkblue:
         return const Color(0xff144C52);
-      case "darkblue":
+      case ColorValE.lightblack:
         return const Color(0xff363636);
-      case "lightblue":
+      case ColorValE.lightblue:
         return const Color(0xffADCCC7);
-      case "grey":
+      case ColorValE.softgrey:
         return const Color(0xffFAF7F2);
       default:
         return Colors.red;

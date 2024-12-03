@@ -35,11 +35,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
                 ),
               ),
             ),
-            Text(
-              "Language Translate",
-              style: TextStyleValidator()
-                  .getStyleValidator(fontName: "black", fontsize: 28),
-            )
+            Text("Language Translate", style: customTextStyle("Medium", 28))
           ],
         ),
       ),

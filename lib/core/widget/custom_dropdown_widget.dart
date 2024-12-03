@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:translate_app/core/widget/customtextwidget.dart';
 import 'package:translate_app/util/textstyle_validator.dart';
 
 class CustomDropDownWidget<T> extends StatelessWidget {
@@ -24,20 +25,14 @@ class CustomDropDownWidget<T> extends StatelessWidget {
         isExpanded: true,
         value: selectedValue,
         hint: Center(
-            child: Text(
-          hintText,
-          style: TextStyleValidator()
-              .getStyleValidator(fontName: "Medium", fontsize: 14),
-        )),
+            child: CustomTextWidget(
+                data: hintText, style: customTextStyle("Medium", 14))),
         items: items.map((T item) {
           return DropdownMenuItem<T>(
             value: item,
             child: Center(
-              child: Text(
-                itembuild(item),
-                style: TextStyleValidator()
-                    .getStyleValidator(fontName: "Medium", fontsize: 14),
-              ),
+              child:
+                  Text(itembuild(item), style: customTextStyle("Medium", 14)),
             ),
           );
         }).toList(),

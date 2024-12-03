@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
 
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:translate_app/core/data/shared_data.dart';
 import 'package:translate_app/core/widget/custom_elevated_button.dart';
@@ -11,6 +10,7 @@ import 'package:translate_app/model/language_model.dart';
 import 'package:translate_app/model/post_translate_model.dart';
 import 'package:translate_app/pages/selected_language/selected_language_modelview.dart';
 import 'package:translate_app/util/color_validator.dart';
+import 'package:translate_app/util/text_to_easy_translate.dart';
 import 'package:translate_app/util/textstyle_validator.dart';
 
 import '../../core/widget/custom_dropdown_widget.dart';
@@ -114,12 +114,12 @@ class _TranslatePageState extends State<TranslatePage> {
                     ],
                     shape: BoxShape.rectangle,
                     borderRadius: BorderRadius.circular(20),
-                    color: ColorValidator().colValidator("grey"),
+                    color: ColorValE.softgrey.color,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      // Kaynak dil seçimi
+                      // çevrilecek olan dil
                       Expanded(
                         child: CustomDropDownWidget<AllLanguageModel>(
                           items: languageLists ?? [],
@@ -130,28 +130,28 @@ class _TranslatePageState extends State<TranslatePage> {
                             });
                           },
                           itembuild: (item) => item.language ?? "",
-                          hintText: "dil_sec".tr(),
+                          hintText: "dil_sec",
                         ),
                       ),
                       const SizedBox(width: 8),
                       const Icon(Icons.compare_arrows),
                       const SizedBox(width: 8),
-                      // Hedef dil seçimi
+                      // çevrilecek olan dil
                       Expanded(
                         child: CustomDropDownWidget<AllLanguageModel>(
-                          items: languageLists?.where((lang) {
-                                return lang.code != selectedFromLanguage?.code;
-                              }).toList() ??
-                              [],
-                          selectedValue: selectedToLanguage,
-                          onChanged: (value) {
-                            setState(() {
-                              selectedToLanguage = value;
-                            });
-                          },
-                          itembuild: (item) => item.language ?? "",
-                          hintText: "dil_sec".tr(),
-                        ),
+                            items: languageLists?.where((lang) {
+                                  return lang.code !=
+                                      selectedFromLanguage?.code;
+                                }).toList() ??
+                                [],
+                            selectedValue: selectedToLanguage,
+                            onChanged: (value) {
+                              setState(() {
+                                selectedToLanguage = value;
+                              });
+                            },
+                            itembuild: (item) => item.language ?? "",
+                            hintText: "dil_sec"),
                       ),
                     ],
                   ),
@@ -165,15 +165,13 @@ class _TranslatePageState extends State<TranslatePage> {
                 child: Stack(
                   children: [
                     TextField(
-                      style: TextStyleValidator()
-                          .getStyleValidator(fontName: "Regular", fontsize: 18),
+                      style: customTextStyle("Regular", 18),
                       maxLength: 200,
                       maxLines: 7,
                       controller: languageFromController,
                       decoration: InputDecoration(
-                          hintText: "cevrilecek_metin".tr(),
-                          hintStyle: TextStyleValidator().getStyleValidator(
-                              fontName: "Regular", fontsize: 18),
+                          hintText: "cevrilecek_metin".transConvert,
+                          hintStyle: customTextStyle("Regular", 18),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20))),
                     ),
@@ -226,8 +224,8 @@ class _TranslatePageState extends State<TranslatePage> {
                               log("Hata  $e");
                             }
                           },
-                          color: ColorValidator().colValidator("orange"),
-                          title: "cevir".tr()),
+                          color: ColorValE.darkblue.color,
+                          title: "cevir"),
                     )
                   ],
                 ),
@@ -240,9 +238,8 @@ class _TranslatePageState extends State<TranslatePage> {
                   width: 350,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    border: Border.all(
-                        color: ColorValidator().colValidator("lightblue"),
-                        width: 3),
+                    border:
+                        Border.all(color: ColorValE.lightblue.color, width: 3),
                   ),
                   child: isLoading == false
                       ? Column(
@@ -252,16 +249,12 @@ class _TranslatePageState extends State<TranslatePage> {
                             Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  translatedModel?.jsonTranslate?.title
-                                          .toString() ??
-                                      "",
-                                  style: TextStyleValidator()
-                                      .getStyleValidator(
-                                          fontName: "Regular", fontsize: 18)
-                                      .copyWith(
-                                          color: ColorValidator()
-                                              .colValidator("darkblue")),
-                                ))
+                                    translatedModel?.jsonTranslate?.title
+                                            .toString() ??
+                                        "",
+                                    style: customTextStyle("Regular", 18)
+                                        ?.copyWith(
+                                            color: ColorValE.darkblue.color)))
                           ],
                         )
                       : Center(

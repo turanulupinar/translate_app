@@ -23,3 +23,9 @@ class TextStyleValidator {
     }
   }
 }
+
+// Komplike kulalnım
+TextStyle? customTextStyle(String fontName, double fontSize) {
+  return TextStyleValidator.instance
+      .getStyleValidator(fontName: fontName, fontsize: fontSize);
+}

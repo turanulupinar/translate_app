@@ -3,7 +3,7 @@ import 'package:translate_app/util/color_validator.dart';
 
 class LoadingWidget {
   final spinkit = SpinKitSpinningLines(
-    color: ColorValidator().colValidator("orange"),
+    color: ColorValE.darkblue.color,
     size: 40,
   );
 }

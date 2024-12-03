@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import 'package:translate_app/util/navigator_extension.dart';
+import '../../core/navigator_manager/navigator_manager.dart';
 
 class ScreenModelView {
   Future durationSec(BuildContext context) async {

@@ -23,7 +23,8 @@
   "ayarlar" : "Settings",
   "ayarlar_dec" : "You can change the settings",
   "aramayapilmadi" : "No search has been made yet", 
-   "listeyitemizle" : "Clear List"
+   "listeyitemizle" : "Clear List",
+   "kabul_ediyorum" : "accept"
 
 
   }
