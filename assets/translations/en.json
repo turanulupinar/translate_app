@@ -1,0 +1,29 @@
+{
+  
+  "dili_degistir": "Change Language", 
+ 
+  "cevir" : "Translate",
+  "dil_cevirme": "Language Translator",
+  "paylas":"Share",
+  "cevrimici_mod":"Online Mode",
+  "cevrimici_mod_mesaji":"Some content may not be viewable because you are offline.",
+  "varsayilan_dili_secin" : "select default language",
+  "başla" : "Start",
+  "türkce" : "Turkish",
+  "ingilizce": "English",
+  "cevrilecek_metin" : "enter text to translate...",
+  "dil_sec" : "Select Language",
+  "dil_dec" : "You can change the language from this menu",
+
+  "sosyalmedyadapaylas" : "Share on Social Media",
+  "gizlilikpol" : "Privacy Policy", 
+  "gizlilikpol_dec" : "",
+  "yorumlar" : "Comments",
+  "yorumlar_dec" : "Comments about us are here...",
+  "ayarlar" : "Settings",
+  "ayarlar_dec" : "You can change the settings",
+  "aramayapilmadi" : "No search has been made yet", 
+   "listeyitemizle" : "Clear List"
+
+
+  }

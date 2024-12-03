@@ -1,0 +1,27 @@
+{
+
+  "dili_degistir": "Dili değiştir",
+  
+  "cevir" : "Çevir",
+  "dil_cevirme": "Dil Çevirici", 
+  "paylas":"Paylaş",
+  "cevrimici_mod" : "Çevrimiçi Mod",
+  "cevrimici_mod_mesaji" : "Çevrimdışı olduğunuz için bazı içerikler görüntülenmeyebilir.",
+  "varsayilan_dili_secin" : "Varsayılan dili seçin",
+  "başla" : "Başla",
+  "türkce" : "Türkçe",
+  "ingilizce": "İngilizce",
+  "cevrilecek_metin" : "çevirilecek olan metni buraya yazın...",
+  "dil_sec" : "Dil Seç",
+  "dil_dec" : "Bu menüden dili değiştirebilirsin",
+  "sosyalmedyadapaylas" : "Sosyal Medyada Paylaş",
+  "gizlilikpol" : "Gizlilik Politikası", 
+  "gizlilikpol_dec" : "",
+  "yorumlar" : "Yorumlar",
+  "yorumlar_dec" : "Hakkımızda yapılan yorumlar burada...",
+  "ayarlar" : "Ayarlar",
+  "ayarlar_dec" : "Ayarları değiştirebilirsiniz",
+  "aramayapilmadi" : "Henüz bir arama yapmadınız",
+  "listeyitemizle" : "Listeyi Temizle"
+
+}
